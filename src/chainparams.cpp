@@ -136,7 +136,7 @@ public:
         consensus.beeGestationBlocks = 48*24;               // The number of blocks for a new bee to mature
         consensus.beeLifespanBlocks = 48*24*14;             // The number of blocks a bee lives for after maturation
         consensus.powLimitHive = uint256S("0fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");  // Highest (easiest) bee hash target
-        consensus.minHiveCheckBlock = 1537566;              // Don't bother checking below this height for Hive blocks (not used for consensus/validation checks, just efficiency when looking for potential BCTs)
+        consensus.minHiveCheckBlock = 200;              // Don't bother checking below this height for Hive blocks (not used for consensus/validation checks, just efficiency when looking for potential BCTs)
         consensus.hiveTargetAdjustAggression = 30;          // Snap speed for bee hash target adjustment EMA
         consensus.hiveBlockSpacingTarget = 2;               // Target Hive block frequency (1 out of this many blocks should be Hivemined)
         consensus.hiveBlockSpacingTargetTypical = 3;        // Observed Hive block frequency (1 out of this many blocks are observed to be Hive)
@@ -159,20 +159,20 @@ public:
         consensus.powTypeLimits.emplace_back(uint256S("0x000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"));   // MinotaurX limit
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000ba12a25c1f2da751fc96");  // LitecoinCash: 1695238
+        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000b000b0");  // VcoinCash: 10
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x00000000000000238fc08340331e2735a64ac2baccdc3db0984ef65c08f658b2"); // LitecoinCash: 1695238
+        consensus.defaultAssumeValid = uint256S("0x0000030d72032b37e85b99e57ea4dfbcdc622cf9d73155a5bbe6a5e6a0a9262b"); // VcoinCash: 10
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0xc7;
-        pchMessageStart[1] = 0xe4;
-        pchMessageStart[2] = 0xba;
-        pchMessageStart[3] = 0xf8;
+        pchMessageStart[0] = 0xb7;
+        pchMessageStart[1] = 0xc4;
+        pchMessageStart[2] = 0xfa;
+        pchMessageStart[3] = 0xc8;
         nDefaultPort = 52458;
         nPruneAfterHeight = 100000;
 
@@ -182,7 +182,7 @@ public:
         assert(genesis.hashMerkleRoot == uint256S("0x97ddfbbae6be97fd6cdf3e7ca13232a3afff2353e29badfab7f73011edd4ced9"));
 
         // Note that of those with the service bits flag, most only support a subset of possible options
-        vSeeds.emplace_back("seeds.litecoinca.sh");
+        vSeeds.emplace_back("seeds.vcoincash.io");
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,28);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
@@ -191,7 +191,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x88, 0xB2, 0x1E};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x88, 0xAD, 0xE4};
 
-        bech32_hrp = "lcc";
+        bech32_hrp = "vcc";
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
@@ -201,7 +201,7 @@ public:
 
         checkpointData = {
             {
-                {  0, uint256S("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2")},
+                {  10, uint256S("0x0000030d72032b37e85b99e57ea4dfbcdc622cf9d73155a5bbe6a5e6a0a9262b")},
        //         {  4032, uint256S("0x9ce90e427198fc0ef05e5905ce3503725b80e26afd35a987965fd7e3d9cf0846")},
        //         {  8064, uint256S("0xeb984353fc5190f210651f150c40b8a4bab9eeeff0b729fcb3987da694430d70")},
        //         { 16128, uint256S("0x602edf1859b7f9a6af809f1d9b0e6cb66fdc1d4d9dcd7a4bec03e12a1ccd153d")},
@@ -226,7 +226,7 @@ public:
 
         chainTxData = ChainTxData{
             // Data as of block 0000000000000012e28998c604bbfc58bc0ae30523bca8a2f41320f4db2655d1 (height 2511842).
-            1317972665, // * UNIX timestamp of last known number of transactions
+            1700185437, // * UNIX timestamp of last known number of transactions
             0,   // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             0      // * estimated number of transactions per second after that timestamp
