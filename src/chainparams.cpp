@@ -76,11 +76,11 @@ public:
     CMainParams() {
         strNetworkID = "main";
         consensus.nSubsidyHalvingInterval = 840000;
-        consensus.BIP16Height = 0; // 87afb798a3ad9378fcd56123c81fb31cfd9a8df4719b9774d71730c16315a092 - October 1, 2012
-        consensus.BIP34Height = 0;
-        consensus.BIP34Hash = uint256S("12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2");
-        consensus.BIP65Height = 0; // bab3041e8977e0dc3eeff63fe707b92bde1dd449d8efafb248c27c8264cc311a
-        consensus.BIP66Height = 0; // 7aceee012833fa8952f8835d8b1b3ae233cd6ab08fdb27a771d2bd7bdc491894
+        consensus.BIP16Height = 1; // 87afb798a3ad9378fcd56123c81fb31cfd9a8df4719b9774d71730c16315a092 - October 1, 2012
+        consensus.BIP34Height = 1;
+        consensus.BIP34Hash = uint256S();
+        consensus.BIP65Height = 1; // bab3041e8977e0dc3eeff63fe707b92bde1dd449d8efafb248c27c8264cc311a
+        consensus.BIP66Height = 1; // 7aceee012833fa8952f8835d8b1b3ae233cd6ab08fdb27a771d2bd7bdc491894
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 3.5 * 24 * 60 * 60; // 3.5 days
         consensus.nPowTargetSpacing = 2.5 * 60;
@@ -159,10 +159,10 @@ public:
         consensus.powTypeLimits.emplace_back(uint256S("0x000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"));   // MinotaurX limit
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000b000b0");  // VcoinCash: 10
+        consensus.nMinimumChainWork = uint256S("0000000000000000000000000000000000000000000000000000000000100010");  // VcoinCash: 0
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x0000030d72032b37e85b99e57ea4dfbcdc622cf9d73155a5bbe6a5e6a0a9262b"); // VcoinCash: 10
+        consensus.defaultAssumeValid = uint256S("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2"); // VcoinCash: 0
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -186,7 +186,7 @@ public:
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,28);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
-        base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,50);
+        base58Prefixes[SCRIPT_ADDRESS2] = std::vector<unsigned char>(1,70);
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1,176);
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x88, 0xB2, 0x1E};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x88, 0xAD, 0xE4};
@@ -201,7 +201,7 @@ public:
 
         checkpointData = {
             {
-                {  10, uint256S("0x0000030d72032b37e85b99e57ea4dfbcdc622cf9d73155a5bbe6a5e6a0a9262b")},
+                {  0, uint256S("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2")},
        //         {  4032, uint256S("0x9ce90e427198fc0ef05e5905ce3503725b80e26afd35a987965fd7e3d9cf0846")},
        //         {  8064, uint256S("0xeb984353fc5190f210651f150c40b8a4bab9eeeff0b729fcb3987da694430d70")},
        //         { 16128, uint256S("0x602edf1859b7f9a6af809f1d9b0e6cb66fdc1d4d9dcd7a4bec03e12a1ccd153d")},
@@ -226,7 +226,7 @@ public:
 
         chainTxData = ChainTxData{
             // Data as of block 0000000000000012e28998c604bbfc58bc0ae30523bca8a2f41320f4db2655d1 (height 2511842).
-            1700185437, // * UNIX timestamp of last known number of transactions
+            1317972665, // * UNIX timestamp of last known number of transactions
             0,   // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             0      // * estimated number of transactions per second after that timestamp
