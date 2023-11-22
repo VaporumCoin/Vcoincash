@@ -122,9 +122,9 @@ public:
         consensus.lastScryptBlock = 50;                // Height of last scrypt block
         consensus.powLimitSHA = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff");   // Initial hash target at fork
         consensus.slowStartBlocks = 2000;                   // Scale post-fork block reward up over this many blocks
-      //  consensus.premineAmount = 550000;                   // Premine amount (less than 1% of issued currency at fork time)
-      //  std::vector<unsigned char> vch = ParseHex("76a914c9f3305556963e2976ccf3348b89a6cc736b6a4e88ac");
-      //  consensus.premineOutputScript = CScript(vch.begin(), vch.end());	// Output script for premine block (CashierDaZEsyBQkuvv4c2uPZFx6m2XTgT)
+        consensus.premineAmount = 550000;                   // Premine amount (less than 1% of issued currency at fork time)
+        std::vector<unsigned char> vch = ParseHex("76a914c9f3305556963e2976ccf3348b89a6cc736b6a4e88ac");
+        consensus.premineOutputScript = CScript(vch.begin(), vch.end());	// Output script for premine block (CashierDaZEsyBQkuvv4c2uPZFx6m2XTgT)
         consensus.totalMoneySupplyHeight = 6215968;         // Height at which TMS is reached, do not issue rewards past this point
 
         // LitecoinCash: Hive: Consensus Fields

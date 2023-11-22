@@ -2021,15 +2021,15 @@ bool CChainState::ConnectBlock(const CBlock& block, CValidationState& state, CBl
                                REJECT_INVALID, "bad-cb-amount");
 
     // LitecoinCash: Ensure that lastScryptBlock+1 coinbase TX pays to the premine address
-  //  if (pindex->nHeight == chainparams.GetConsensus().lastScryptBlock+1) {
-  //      if (block.vtx[0]->vout[0].scriptPubKey.size() == 1) {
-  //          LogPrintf("ConnectBlock(): allowing mine\n");
-  //      } else if (block.vtx[0]->vout[0].scriptPubKey != chainparams.GetConsensus().premineOutputScript) {
-   //         return state.DoS(100,
-   //             error("ConnectBlock(): incorrect pubkey on pm coinbase TX (Got %s, expected %s)",
-   //                 HexStr(block.vtx[0]->vout[0].scriptPubKey),
-   //                 HexStr(chainparams.GetConsensus().premineOutputScript)),
-   //             REJECT_INVALID, "bad-pm-script");
+    if (pindex->nHeight == chainparams.GetConsensus().lastScryptBlock+1) {
+        if (block.vtx[0]->vout[0].scriptPubKey.size() == 1) {
+            LogPrintf("ConnectBlock(): allowing mine\n");
+        } else if (block.vtx[0]->vout[0].scriptPubKey != chainparams.GetConsensus().premineOutputScript) {
+            return state.DoS(100,
+                error("ConnectBlock(): incorrect pubkey on pm coinbase TX (Got %s, expected %s)",
+                    HexStr(block.vtx[0]->vout[0].scriptPubKey),
+                    HexStr(chainparams.GetConsensus().premineOutputScript)),
+                REJECT_INVALID, "bad-pm-script");
         }
     }
 
