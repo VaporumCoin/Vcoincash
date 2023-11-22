@@ -98,28 +98,28 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 999999999999ULL; // January 31st, 2018
 
         // Deployment of SegWit (BIP141, BIP143, and BIP147)
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
+        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 0;
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1700439224;    // Activated
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 999999999999ULL; // Activated
 
         // LitecoinCash: Hive: Deployment
-        consensus.vDeployments[Consensus::DEPLOYMENT_HIVE].bit = 1;
+        consensus.vDeployments[Consensus::DEPLOYMENT_HIVE].bit = 0;
         consensus.vDeployments[Consensus::DEPLOYMENT_HIVE].nStartTime = 1700439224;    // Activated
         consensus.vDeployments[Consensus::DEPLOYMENT_HIVE].nTimeout = 999999999999ULL; // Activated
 
         // LitecoinCash: Hive 1.1: Deployment
-        consensus.vDeployments[Consensus::DEPLOYMENT_HIVE_1_1].bit = 1;
+        consensus.vDeployments[Consensus::DEPLOYMENT_HIVE_1_1].bit = 0;
         consensus.vDeployments[Consensus::DEPLOYMENT_HIVE_1_1].nStartTime = 1700439224;    // Activated
         consensus.vDeployments[Consensus::DEPLOYMENT_HIVE_1_1].nTimeout = 999999999999ULL; // Activated
 
         // LitecoinCash: MinotaurX+Hive1.2: Deployment
-        consensus.vDeployments[Consensus::DEPLOYMENT_MINOTAURX].bit = 1;
+        consensus.vDeployments[Consensus::DEPLOYMENT_MINOTAURX].bit = 0;
         consensus.vDeployments[Consensus::DEPLOYMENT_MINOTAURX].nStartTime = 1700439224;    // Activated
         consensus.vDeployments[Consensus::DEPLOYMENT_MINOTAURX].nTimeout = 999999999999ULL; // Activated
 
         // LitecoinCash fields
-        consensus.powForkTime = 1518982404;                 // Time of PoW hash method change
-        consensus.lastScryptBlock = 1371111;                // Height of last scrypt block
+        consensus.powForkTime = 1700439224;                                                                     // Time of PoW hash method change
+        consensus.lastScryptBlock = 50;                // Height of last scrypt block
         consensus.powLimitSHA = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff");   // Initial hash target at fork
         consensus.slowStartBlocks = 2000;                   // Scale post-fork block reward up over this many blocks
         consensus.premineAmount = 550000;                   // Premine amount (less than 1% of issued currency at fork time)
