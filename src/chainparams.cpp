@@ -118,7 +118,7 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_MINOTAURX].nTimeout = 999999999999ULL; // Activated
 
         // LitecoinCash fields
-        consensus.powForkTime = 1700439224;                                                                     // Time of PoW hash method change
+        consensus.powForkTime = 1700625972;                                                                     // Time of PoW hash method change
         consensus.lastScryptBlock = 50;                // Height of last scrypt block
         consensus.powLimitSHA = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff");   // Initial hash target at fork
         consensus.slowStartBlocks = 2000;                   // Scale post-fork block reward up over this many blocks
@@ -159,10 +159,10 @@ public:
         consensus.powTypeLimits.emplace_back(uint256S("0x000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"));   // MinotaurX limit
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0000000000000000000000000000000000000000000000000000000000100010");  // VcoinCash: 0
+        consensus.nMinimumChainWork = uint256S("0000000000000000000000000000000000000000000000000000000003300330");  // VcoinCash: 50
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2"); // VcoinCash: 0
+        consensus.defaultAssumeValid = uint256S("0x000006de3a2ed311e76093e19c05d5674d2260c95fcf76618ecdcbf35b01df21"); // VcoinCash: 50
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -202,7 +202,7 @@ public:
         checkpointData = {
             {
                 {  0, uint256S("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2")},
-       //         {  4032, uint256S("0x9ce90e427198fc0ef05e5905ce3503725b80e26afd35a987965fd7e3d9cf0846")},
+                {  50, uint256S("0x000006de3a2ed311e76093e19c05d5674d2260c95fcf76618ecdcbf35b01df21")}, // VcoinCash: Premine block
        //         {  8064, uint256S("0xeb984353fc5190f210651f150c40b8a4bab9eeeff0b729fcb3987da694430d70")},
        //         { 16128, uint256S("0x602edf1859b7f9a6af809f1d9b0e6cb66fdc1d4d9dcd7a4bec03e12a1ccd153d")},
        //         { 23420, uint256S("0xd80fdf9ca81afd0bd2b2a90ac3a9fe547da58f2530ec874e978fce0b5101b507")},
@@ -225,8 +225,8 @@ public:
         };
 
         chainTxData = ChainTxData{
-            // Data as of block 0000000000000012e28998c604bbfc58bc0ae30523bca8a2f41320f4db2655d1 (height 2511842).
-            1317972665, // * UNIX timestamp of last known number of transactions
+            // Data as of block 000006de3a2ed311e76093e19c05d5674d2260c95fcf76618ecdcbf35b01df21 (height 50).
+            1700625972, // * UNIX timestamp of last known number of transactions
             0,   // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             0      // * estimated number of transactions per second after that timestamp
