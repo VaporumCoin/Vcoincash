@@ -95,31 +95,31 @@ public:
         // Deployment of BIP68, BIP112, and BIP113.
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1700439224;    // January 28, 2017
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 999999999999ULL; // January 31st, 2018
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1701730531;   // January 31st, 2018
 
         // Deployment of SegWit (BIP141, BIP143, and BIP147)
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 0;
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1700439224;    // Activated
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 999999999999ULL; // Activated
+        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1701730531;   // Activated
 
         // LitecoinCash: Hive: Deployment
         consensus.vDeployments[Consensus::DEPLOYMENT_HIVE].bit = 0;
         consensus.vDeployments[Consensus::DEPLOYMENT_HIVE].nStartTime = 1700439224;    // Activated
-        consensus.vDeployments[Consensus::DEPLOYMENT_HIVE].nTimeout = 999999999999ULL; // Activated
+        consensus.vDeployments[Consensus::DEPLOYMENT_HIVE].nTimeout = 1701730531;   // Activated
 
         // LitecoinCash: Hive 1.1: Deployment
         consensus.vDeployments[Consensus::DEPLOYMENT_HIVE_1_1].bit = 0;
         consensus.vDeployments[Consensus::DEPLOYMENT_HIVE_1_1].nStartTime = 1700439224;    // Activated
-        consensus.vDeployments[Consensus::DEPLOYMENT_HIVE_1_1].nTimeout = 999999999999ULL; // Activated
+        consensus.vDeployments[Consensus::DEPLOYMENT_HIVE_1_1].nTimeout = 1701730531;   // Activated
 
         // LitecoinCash: MinotaurX+Hive1.2: Deployment
         consensus.vDeployments[Consensus::DEPLOYMENT_MINOTAURX].bit = 0;
         consensus.vDeployments[Consensus::DEPLOYMENT_MINOTAURX].nStartTime = 1700439224;    // Activated
-        consensus.vDeployments[Consensus::DEPLOYMENT_MINOTAURX].nTimeout = 999999999999ULL; // Activated
+        consensus.vDeployments[Consensus::DEPLOYMENT_MINOTAURX].nTimeout = 1701730531;   // Activated
 
         // LitecoinCash fields
         consensus.powForkTime = 1700625972;            // Time of PoW hash method change
-        consensus.lastScryptBlock = 6215968;           // Height of last scrypt block
+        consensus.lastScryptBlock = 50;           // Height of last scrypt block
         consensus.powLimitSHA = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff");   // Initial hash target at fork
         consensus.slowStartBlocks = 2000;                   // Scale post-fork block reward up over this many blocks
         consensus.premineAmount = 0;                   // Premine amount (less than 1% of issued currency at fork time)
@@ -136,7 +136,7 @@ public:
         consensus.beeGestationBlocks = 48*24;               // The number of blocks for a new bee to mature
         consensus.beeLifespanBlocks = 48*24*14;             // The number of blocks a bee lives for after maturation
         consensus.powLimitHive = uint256S("0fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");  // Highest (easiest) bee hash target
-        consensus.minHiveCheckBlock = 200;              // Don't bother checking below this height for Hive blocks (not used for consensus/validation checks, just efficiency when looking for potential BCTs)
+        consensus.minHiveCheckBlock = 50;              // Don't bother checking below this height for Hive blocks (not used for consensus/validation checks, just efficiency when looking for potential BCTs)
         consensus.hiveTargetAdjustAggression = 30;          // Snap speed for bee hash target adjustment EMA
         consensus.hiveBlockSpacingTarget = 2;               // Target Hive block frequency (1 out of this many blocks should be Hivemined)
         consensus.hiveBlockSpacingTargetTypical = 3;        // Observed Hive block frequency (1 out of this many blocks are observed to be Hive)
