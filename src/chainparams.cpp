@@ -78,7 +78,7 @@ public:
         consensus.nSubsidyHalvingInterval = 840000;
         consensus.BIP16Height = 1; // 87afb798a3ad9378fcd56123c81fb31cfd9a8df4719b9774d71730c16315a092 - October 1, 2012
         consensus.BIP34Height = 1;
-        consensus.BIP34Hash = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.BIP34Hash = uint256S("000001b00c45f35a757aa7be0f02ffd25844055682f7ef8636cc076d25d814ad");
         consensus.BIP65Height = 1; // bab3041e8977e0dc3eeff63fe707b92bde1dd449d8efafb248c27c8264cc311a
         consensus.BIP66Height = 1; // 7aceee012833fa8952f8835d8b1b3ae233cd6ab08fdb27a771d2bd7bdc491894
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
@@ -90,39 +90,39 @@ public:
         consensus.nMinerConfirmationWindow = 8064; // nPowTargetTimespan / nPowTargetSpacing * 4
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
         consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601; // January 1, 2008
-        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999; // December 31, 2008
+        consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1742508857; // December 31, 2008
 
         // Deployment of BIP68, BIP112, and BIP113.
         consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1700439224;    // January 28, 2017
-        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1701730531;   // January 31st, 2018
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1710947657; // March 20, 2024
+        consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1742508857;   // March 20, 2025
 
         // Deployment of SegWit (BIP141, BIP143, and BIP147)
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1700439224;    // Activated
-        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1701730531;   // Activated
+        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
+        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1710947657; // March 20, 2024
+        consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1742508857;   // March 20, 2025
 
         // LitecoinCash: Hive: Deployment
-        consensus.vDeployments[Consensus::DEPLOYMENT_HIVE].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_HIVE].nStartTime = 1700439224;    // Activated
-        consensus.vDeployments[Consensus::DEPLOYMENT_HIVE].nTimeout = 1701730531;   // Activated
+        consensus.vDeployments[Consensus::DEPLOYMENT_HIVE].bit = 7;
+        consensus.vDeployments[Consensus::DEPLOYMENT_HIVE].nStartTime = 1710947657; // March 20, 2024
+        consensus.vDeployments[Consensus::DEPLOYMENT_HIVE].nTimeout = 1742508857;   // March 20, 2025
 
         // LitecoinCash: Hive 1.1: Deployment
-        consensus.vDeployments[Consensus::DEPLOYMENT_HIVE_1_1].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_HIVE_1_1].nStartTime = 1700439224;    // Activated
-        consensus.vDeployments[Consensus::DEPLOYMENT_HIVE_1_1].nTimeout = 1701730531;   // Activated
+        consensus.vDeployments[Consensus::DEPLOYMENT_HIVE_1_1].bit = 9;
+        consensus.vDeployments[Consensus::DEPLOYMENT_HIVE_1_1].nStartTime = 1710947657; // March 20, 2024
+        consensus.vDeployments[Consensus::DEPLOYMENT_HIVE_1_1].nTimeout = 1742508857;   // March 20, 2025
 
         // LitecoinCash: MinotaurX+Hive1.2: Deployment
-        consensus.vDeployments[Consensus::DEPLOYMENT_MINOTAURX].bit = 0;
-        consensus.vDeployments[Consensus::DEPLOYMENT_MINOTAURX].nStartTime = 1700439224;    // Activated
-        consensus.vDeployments[Consensus::DEPLOYMENT_MINOTAURX].nTimeout = 1701730531;   // Activated
+        consensus.vDeployments[Consensus::DEPLOYMENT_MINOTAURX].bit = 7;
+        consensus.vDeployments[Consensus::DEPLOYMENT_MINOTAURX].nStartTime = 1710947657;          // March 20, 2024
+        consensus.vDeployments[Consensus::DEPLOYMENT_MINOTAURX].nTimeout = 1742508857 + 31536000; // Start + 1 year
 
         // LitecoinCash fields
-        consensus.powForkTime = 1700625972;            // Time of PoW hash method change
-        consensus.lastScryptBlock = 50;           // Height of last scrypt block
+        consensus.powForkTime = 1710947657;      // Time of PoW hash method change
+        consensus.lastScryptBlock = 2000;        // Height of last scrypt block
         consensus.powLimitSHA = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff");   // Initial hash target at fork
         consensus.slowStartBlocks = 2000;                   // Scale post-fork block reward up over this many blocks
-        consensus.premineAmount = 0;                   // Premine amount (less than 1% of issued currency at fork time)
+        consensus.premineAmount = 1;                   // Premine amount (less than 1% of issued currency at fork time)
         std::vector<unsigned char> vch = ParseHex("76a914c9f3305556963e2976ccf3348b89a6cc736b6a4e88ac");
         consensus.premineOutputScript = CScript(vch.begin(), vch.end());	// Output script for premine block (CashierDaZEsyBQkuvv4c2uPZFx6m2XTgT)
         consensus.totalMoneySupplyHeight = 6215968;         // Height at which TMS is reached, do not issue rewards past this point
@@ -159,10 +159,10 @@ public:
         consensus.powTypeLimits.emplace_back(uint256S("0x000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"));   // MinotaurX limit
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0000000000000000000000000000000000000000000000000000000003300330");  // VcoinCash: 50
+        consensus.nMinimumChainWork = uint256S("0000000000000000000000000000000000000000000000000000000000200020");  // VcoinCash: 1
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x000006de3a2ed311e76093e19c05d5674d2260c95fcf76618ecdcbf35b01df21"); // VcoinCash: 50
+        consensus.defaultAssumeValid = uint256S("0x000001b00c45f35a757aa7be0f02ffd25844055682f7ef8636cc076d25d814ad"); // VcoinCash: 1
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -191,7 +191,7 @@ public:
         base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x88, 0xB2, 0x1E};
         base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x88, 0xAD, 0xE4};
 
-        bech32_hrp = "vcc";
+        bech32_hrp = "lcc";
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
@@ -202,7 +202,7 @@ public:
         checkpointData = {
             {
                 {  0, uint256S("0x12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2")},
-       //         {  50, uint256S("0x000006de3a2ed311e76093e19c05d5674d2260c95fcf76618ecdcbf35b01df21")}, // VcoinCash: Premine block
+                {  1, uint256S("0x000001b00c45f35a757aa7be0f02ffd25844055682f7ef8636cc076d25d814ad")}, // VcoinCash: Premine block
        //         {  8064, uint256S("0xeb984353fc5190f210651f150c40b8a4bab9eeeff0b729fcb3987da694430d70")},
        //         { 16128, uint256S("0x602edf1859b7f9a6af809f1d9b0e6cb66fdc1d4d9dcd7a4bec03e12a1ccd153d")},
        //         { 23420, uint256S("0xd80fdf9ca81afd0bd2b2a90ac3a9fe547da58f2530ec874e978fce0b5101b507")},
@@ -226,7 +226,7 @@ public:
 
         chainTxData = ChainTxData{
             // Data as of block 12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2 (height 0).
-            1317972665, // * UNIX timestamp of last known number of transactions
+            1710820124, // * UNIX timestamp of last known number of transactions
             0,   // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
             0      // * estimated number of transactions per second after that timestamp
