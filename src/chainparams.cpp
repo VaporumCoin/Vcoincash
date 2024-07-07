@@ -119,9 +119,9 @@ public:
 
         // LitecoinCash fields
         consensus.powForkTime = 1710947657;      // Time of PoW hash method change
-        consensus.lastScryptBlock = 2000;        // Height of last scrypt block
+        consensus.lastScryptBlock = 10;        // Height of last scrypt block
         consensus.powLimitSHA = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff");   // Initial hash target at fork
-        consensus.slowStartBlocks = 2000;                   // Scale post-fork block reward up over this many blocks
+        consensus.slowStartBlocks = 10;                   // Scale post-fork block reward up over this many blocks
         consensus.premineAmount = 1;                   // Premine amount (less than 1% of issued currency at fork time)
         std::vector<unsigned char> vch = ParseHex("76a914c9f3305556963e2976ccf3348b89a6cc736b6a4e88ac");
         consensus.premineOutputScript = CScript(vch.begin(), vch.end());	// Output script for premine block (CashierDaZEsyBQkuvv4c2uPZFx6m2XTgT)
